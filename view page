@@ -1,0 +1,105 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diary Entry</title>
+    <style>
+        /* Body styling for the overall page with background image */
+        body {
+            background-image: url('https://images.unsplash.com/photo-1596367407372-96cb88503db6?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff; /* White text for good contrast */
+            font-family: 'Georgia', serif; /* Soft serif font for a more personal, diary feel */
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        /* Main container div */
+        .container {
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+            width: 80%;
+            max-width: 900px;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for a floating effect */
+            text-align: center;
+        }
+
+        /* Heading styling */
+        h1 {
+            color: #333;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        /* Paragraph styling for the date, title, and description */
+        p {
+            font-size: 1.2rem;
+            color: #555;
+            line-height: 1.6;
+            margin: 10px 0;
+        }
+
+        /* Strong tag styling for labels */
+        strong {
+            color: #333;
+            font-size: 1.4rem;
+        }
+
+        /* Styling for the description text */
+        .description-text {
+            color: #444;
+            font-size: 1.1rem;
+            font-style: italic;
+            margin-top: 20px;
+            background-color: #fafafa;
+            padding: 15px;
+            border-left: 4px solid #007BFF;
+        }
+
+        /* Go to Home button styling */
+        .home-button {
+            background-color: #1085f3;
+            color: white;
+            font-size: 1rem;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        /* Hover effect for the button */
+        .home-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Your Memory</h1>
+        <p><strong>Date:</strong> <%= session.getAttribute("date") %></p>
+        <p><strong>Title:</strong> <%= session.getAttribute("title") %></p>
+        <div class="description-text">
+            <strong>Description:</strong>
+            <p><%= session.getAttribute("description") %></p>
+        </div>
+
+        <form action="/" method="get">
+            <button class="home-button">Go to Home</button>
+        </form>
+    </div>
+
+</body>
+</html>
