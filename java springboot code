@@ -1,0 +1,55 @@
+/////main code
+
+package com.example.demo;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class DemoApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(DemoApplication.class, args);
+	}
+
+}
+
+//// class code
+package com.example.demo;
+
+import jakarta.servlet.http.HttpSession;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+@Controller
+public class homecontroller {
+
+    @RequestMapping("/")
+    public String home() {
+        return "index.jsp";
+    }
+
+    @RequestMapping("/create")
+    public String create() {
+        return "result.jsp";
+    }
+
+    @RequestMapping("/entry")
+    public String viewEntry(@RequestParam("date") String date,
+                            @RequestParam("title") String title,
+                            @RequestParam("description") String description,
+                            HttpSession session) {
+
+        java.sql.Date sqlDate = java.sql.Date.valueOf(date);
+        
+        session.setAttribute("description", description);
+        session.setAttribute("title", title);
+        session.setAttribute("date", sqlDate);
+        
+        return "view.jsp";
+    }
+
+
+}
+
