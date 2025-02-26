@@ -1,0 +1,123 @@
+<%@page language="java"%>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Personal Diary</title>
+    <style>
+        /* Body styling with background image */
+        body {
+            background-image: url('https://images.unsplash.com/photo-1596367407372-96cb88503db6?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff; /* White text for good contrast */
+            font-family: 'Georgia', serif; /* Soft serif font for a more personal, diary feel */
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        /* Container for the form with an overlay */
+        .form-container {
+            background: rgba(0, 0, 0, 0.7); /* Dark overlay for readability */
+            padding: 30px;
+            border-radius: 15px;
+            width: 80%;
+            max-width: 800px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Heading styling for an inviting feel */
+        h2 {
+            font-size: 2.5em;
+            font-family: 'Georgia', serif;
+            margin-bottom: 20px;
+            color: #e1e7eb; /* Soft yellow for a welcoming vibe */
+        }
+
+        h3 {
+            font-size: 1.5em;
+            color: #e9ecee; /* A golden shade to draw attention */
+            margin-bottom: 20px;
+        }
+
+        /* Label styling */
+        label {
+            font-size: 1.2em;
+            margin: 10px 0;
+            display: block;
+        }
+
+        /* Input styling */
+        input[type="date"], input[type="text"], textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        /* Submit button styling */
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+            margin-top: 10px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        /* Media query for responsiveness */
+        @media (max-width: 600px) {
+            .form-container {
+                width: 95%;
+                padding: 20px;
+            }
+            h2 {
+                font-size: 2em;
+            }
+            h3 {
+                font-size: 1.3em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Welcome to Your Personal Diary</h2>
+        <h3>Record your thoughts, memories, and stories below...</h3>
+
+        <form action="entry">
+            <label for="date">Entry Date:</label>
+            <input type="date" id="date" name="date"><br><br>
+
+            <label for="title">Title of Your Entry:</label>
+            <input type="text" id="title" name="title"><br><br>
+
+            <label for="description">Your Story:</label><br>
+            <textarea id="description" name="description" rows="10" cols="50"></textarea><br><br>
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+</html>
